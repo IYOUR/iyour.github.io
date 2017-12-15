@@ -1,0 +1,555 @@
+
+
+
+<head>
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+  <style>
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  box-sizing: border-box !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*
+::-webkit-scrollbar {
+  width: 12px !important;
+  height: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1a1a1a;
+  height: 5px;
+}
+*/
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 20px;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
+#projectsApp {
+  width: 100%;
+  /* padding: 0 5%; */
+  float: left;
+}
+
+.projects {
+  width: 23%;
+  float: left;
+  min-height: 50px;
+  height: 50px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin: 10px 1% 10px 1%;
+  overflow: hidden;
+  transition: all 0.5s ease, opacity 0.1s;
+  -webkit-transition: all 0.5s ease, opacity 0.1s;
+}
+.projects.shrunk {
+  pointer-events: none;
+  height: 0px !important;
+  overflow: hidden;
+  width: 0px !important;
+  padding: 0px;
+  transition: all 0.9s ease;
+  -webkit-transition: all 0.9s ease;
+}
+.projects.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+.projects .backArrow {
+  display: none;
+}
+.projects.midTransition {
+  width: 100% !important;
+  min-height: 100% !important;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0px;
+}
+.projects.openedProject {
+  width: 40px !important;
+  height: 100% !important;
+  min-height: 100%;
+  position: fixed;
+  margin: 0px;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  z-index: 100;
+}
+.projects.openedProject .backArrow {
+  display: block;
+  position: absolute;
+  float: left;
+  font-size: 30pt;
+  color: #fff;
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0px;
+  top: 45%;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.projects.openedProject .info {
+  background: rgba(55, 55, 55, 0.9) !important;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.projects.openedProject:hover .info {
+  background: rgba(55, 55, 55, 0.7) !important;
+}
+.projects.openedProject:hover .backArrow {
+  transform: scale(1.2);
+}
+/* .projects:nth-child(1), .projects:nth-child(2) {
+  width: 48%;
+} */
+.projects .beforeTitle {
+  float: left;
+  opacity: 1;
+  background: #fff;
+  padding: 10px 5px 10px 5px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  top: 45%;
+  margin: 0px 5% 0px 5%;
+}
+.projects.openedProject .beforeTitle, .projects.openedProject h1, .projects.openedProject hr {
+  display: none;
+}
+.projects.openedProject .info {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  margin-left: 0px;
+  border-radius: 000px;
+  opacity: 1;
+  background: rgba(1, 154, 109, 0.8);
+}
+.projects:hover .beforeTitle, .projects.midTransition .beforeTitle {
+  opacity: 0;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+.projects:hover .info, .projects.midTransition .info {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  margin-left: 0px;
+  border-radius: 000px;
+  opacity: 1;
+  background: rgba(1, 154, 109, 0.8);
+}
+.projects:hover .info h1, .projects.midTransition .info h1 {
+  opacity: 1;
+  transform: translate(0%, 0);
+  -webkit-transform: translate(0%, 0);
+}
+.projects:hover .info hr, .projects.midTransition .info hr {
+  width: 70%;
+  margin: 0px 15% 0px 15%;
+  left: 0px;
+  opacity: 1;
+}
+.projects .info {
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  float: left;
+  opacity: 0;
+  position: absolute;
+  background: rgba(1, 154, 109, 0);
+  overflow: hidden;
+  transition: all 0.2s ease, opacity 0.1s;
+  -webkit-transition: all 0.2s ease, opacity 0.1s;
+  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+}
+.projects .info .fadeTitle {
+  float: left;
+  width: 100%;
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 12pt;
+  text-align: center;
+  letter-spacing: 5px;
+  position: absolute;
+  margin: 0px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  padding: 0px 10px 5px 10px;
+  top: 35%;
+  transform: translate(0%, -25px);
+  -webkit-transform: translate(0%, -25px);
+  transition-delay: 0.4s;
+  -webkit-transition-delay: 0.4s;
+}
+.projects .info hr {
+  outline: none;
+  height: 3px;
+  border: 0px;
+  float: left;
+  background-color: #fff;
+  width: 2px;
+  left: 50%;
+  margin-left: -1px;
+  opacity: 0;
+  position: absolute;
+  top: 53%;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition-delay: 0.5s;
+  -webkit-transition-delay: 0.5s;
+}
+
+.selectedArea {
+  width: 100%;
+  min-height: 00%;
+  max-height: 0px;
+  float: left;
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+  padding: 0px 0px 0px 40px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transition: all 0.0s ease;
+  -webkit-transition: all 0.0s ease;
+}
+.selectedArea.opened {
+  opacity: 1;
+  pointer-events: all;
+  min-height: 100%;
+  max-height: 100000%;
+}
+.selectedArea.opened .copyArea, .selectedArea.opened h1 span, .selectedArea.opened h1 {
+  opacity: 1;
+  -webkit-transform: translate(0px, 0%);
+  transform: translate(0px, 0%);
+}
+.selectedArea:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  background: red;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.6) 10%, white 90%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(255, 255, 255, 0.6) 10%, white 90%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rrgba(255, 255, 255, 0.6) 10%, white 90%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.6) 10%, white 90%);
+  /* Standard syntax */
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.selectedArea h1 {
+  float: left;
+  width: 100%;
+  margin: 0px;
+  padding: 80px 5px 80px 5px;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: 28pt;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 5px;
+  color: #1a1a1a;
+  opacity: 0;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.selectedArea h1 span {
+  background: #fff;
+  padding: 10px 80px 10px 80px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate(0%, -100%);
+  transform: translate(0%, -100%);
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+}
+.selectedArea .copyArea {
+  width: 880px;
+  float: left;
+  position: relative;
+  left: 50%;
+  margin-left: -450px;
+  padding: 10px 25px 10px 25px;
+  margin-top: 15px;
+  margin-bottom: 85px;
+  opacity: 0;
+  -webkit-transform: translate(0%, 100%);
+  transform: translate(0%, 100%);
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s;
+}
+.selectedArea .copyArea img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 920px) {
+  .projects {
+    width: 48%;
+  }
+  .projects hr {
+    top: 60% !important;
+  }
+  /* .projects:nth-child(1), .projects:nth-child(2) {
+    width: 48%;
+  }
+  .projects:nth-child(1) hr, .projects:nth-child(2) hr {
+    top: 53% !important;
+  } */
+
+  .selectedArea .copyArea {
+    width: 100%;
+    margin-left: 0%;
+    left: 0%;
+  }
+  .selectedArea h1 {
+    font-size: 20pt;
+  }
+  .selectedArea h1 span {
+    padding: 10px 25px 10px 25px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .projects {
+    width: 98% !important;
+  }
+  .projects hr {
+    top: 55% !important;
+  }
+  /* .projects:nth-child(1), .projects:nth-child(2) {
+    width: 48%;
+  }
+  .projects:nth-child(1) hr, .projects:nth-child(2) hr {
+    top: 55% !important;
+  } */
+}
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</head>
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('<%= config.root %><%= page["header-img"] || config["header-img"] %>')">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+              <div class="site-heading">
+                  <h1><%= page.title || config.title %></h1>
+                  <!--<hr class="small">-->
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+<h2>
+  <span class="subheading"><%= page.description || config.subtitle || "Look For Less Do More" %></span>
+</h2>
+
+<div id="projectsApp">
+<% page.posts.each(function(post,index){ %>  
+  <a href="#/<%= post.path %><%= index %>">
+    <div class="projects" id="item<%= index %>" attr-path="<%= post.path %>" attr-title="<%= post.title || "Untitled" %>" attr-content="<%= post.content %>" attr-img="<%= config.root + config["header-img"] %>" style="background: url('<%= config.root + config["header-img"] %>')">
+      <h3 class="beforeTitle"> <%- post.title || "Untitled" %> </h3>
+      <div class="info">
+        <h1 class="fadeTitle"> <%- truncate(strip_html(post.content), {length: 50, omission: '...'}) %> </h1>
+        <hr>
+      </div>
+      <p class="backArrow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+    </div>
+  </a>
+<% }); %>
+
+  <div class="selectedArea">
+    <h1 id="selectImg"><span id="selectTitle"></span></h1>
+    <div id="selectContent" class="copyArea"></div>
+  </div>
+
+</div>
+
+<!-- Pager -->
+
+<ul class="pager">
+    <% if (page.prev){ %>
+        <li class="previous">
+            <a href="<%- config.root %><%- page.prev_link %>">&larr; Newer Posts</a>
+        </li>
+    <% } %>
+    <% if (page.next){ %>
+        <li class="next">
+            <a href="<%- config.root %><%- page.next_link %>">Older Posts &rarr;</a>
+        </li>
+    <% } %>
+</ul>
+
+<%- js('js/jquery.min.js') %>
+<script>
+(function() {
+	var isSelected = false,resizeTimer,scrollBackTo;
+	$(document).ready(function() {
+		resizeProjectDivs();
+		//click
+		$(".projects").on("click",function(){
+		showPost($(this));
+		});
+
+		$(window).on('load',function(){
+			var url = window.location.href;
+			if(!isNaN(url.substr(url.length-1,1))){
+				showPost($("#item"+url.substr(url.length-1,1)))
+			}
+		}) 
+		$(window).on("resize", function(e) {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function() {
+				if (isSelected == false) {
+				resizeProjectDivs();
+				}
+			}, 250);
+		});	
+	});	
+	function showPost (domNode) {
+		var self = domNode;
+		if ($(self).hasClass("openedProject")) {
+			isSelected = false;
+			window.history.go(-1)
+			$(self).addClass("midTransition");
+			$(self).removeClass("openedProject");
+
+			setTimeout(function() {
+				$(self).removeClass("midTransition");
+				$(".selectedArea").removeClass("opened");
+			}, 800);
+			setTimeout(function() {
+				$(".projects").removeClass("hidden");
+				$(".projects").removeClass("shrunk");
+			}, 1200);
+			setTimeout(function() {
+				$("html, body").animate({ scrollTop: scrollBackTo}, 500);
+			}, 1600);		
+		} else {
+			isSelected = true;
+			window.scrollTo(0, 0);
+			scrollBackTo = $(self).offset().top;
+			$(self).addClass("midTransition");
+			$(".projects").addClass("hidden");
+			$(self).removeClass("hidden");
+			//填充内容
+			$("#selectTitle").text($(self).attr("attr-title"));
+			$("#selectContent").html($(self).attr("attr-content"));
+			$("#selectImg").css("background","url("+$(self).attr('attr-img')+")");       
+			setTimeout(function() {
+				$(".selectedArea").addClass("opened");
+				$(self).addClass("openedProject");
+				$(self).removeClass("midTransition");
+				$(".projects").addClass("shrunk");
+				$(self).removeClass("shrunk");			
+				
+			}, 800);
+		}  
+	}
+
+	function resizeProjectDivs() {
+		var midRange = false;
+		var smallRange = false;
+		var winWidth = $(window).width();
+		if (winWidth < 920 && 620 < winWidth) {
+			midRange = true;
+		}
+		if (winWidth < 720) {
+			smallRange = true;
+		}
+		var i = 0;
+
+		$(".projects").each(function() {
+			var pWidth = $(this).width();
+			var pHeight;
+			if (midRange == true) {
+			pHeight = pWidth * 0.5;
+			} else if (smallRange == true) {
+			pHeight = pWidth;
+			} else {
+			pHeight = pWidth * 1.5;
+			}
+		
+			$(this).css("height", pHeight + "px");
+			i++;
+		});
+	}	
+
+})()
+</script>
+
+  
+ 
+ 
