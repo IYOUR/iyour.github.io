@@ -134,4 +134,4 @@ theme: huxblog
 deploy:
   type: git
   repository: https://github.com/IYOUR/iyour.github.io.git
-  branch: gh-pages
+  branch: master

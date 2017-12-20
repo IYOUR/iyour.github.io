@@ -382,26 +382,16 @@ h2 {
   } */
 }
 
-    </style>
-
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
-  
-  
-  <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
+</style>
 
 </head>
+
+
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('<%= config.root %><%= page["header-img"] || config["header-img"] %>')">
+<header class="intro-header" style="background-image:url('<%= page["header-img"] || config.root + config["header-img"] %>')">
   <div class="container">
       <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="site-heading">
                   <h1><%= page.title || config.title %></h1>
                   <!--<hr class="small">-->
@@ -415,20 +405,25 @@ h2 {
 <h2>
   <span class="subheading"><%= page.description || config.subtitle || "Look For Less Do More" %></span>
 </h2>
+<%
+  if(page.current_url.length>0){
 
+  }
+%>
 <div id="projectsApp">
-<% page.posts.each(function(post,index){ %>  
-  <a href="#/<%= post.path %><%= index %>">
-    <div class="projects" id="item<%= index %>" attr-path="<%= post.path %>" attr-title="<%= post.title || "Untitled" %>" attr-content="<%= post.content %>" attr-img="<%= config.root + config["header-img"] %>" style="background: url('<%= config.root + config["header-img"] %>')">
-      <h3 class="beforeTitle"> <%- post.title || "Untitled" %> </h3>
-      <div class="info">
-        <h1 class="fadeTitle"> <%- truncate(strip_html(post.content), {length: 50, omission: '...'}) %> </h1>
-        <hr>
+  <% page.posts.each(function(post,index){ %>  
+    <% var coverImg = post["header-img"] ? post.path + post["header-img"] : url_for(config["header-img"]) %>
+    <a href="#/<%= post.path %><%= index %>">
+      <div class="projects" id="item<%= index %>" attr-path="<%= post.path %>" attr-title="<%= post.title || "Untitled" %>" attr-content="<%= post.content %>" attr-img="<%= coverImg %>" style="background: url('<%= coverImg %>')">
+        <h3 class="beforeTitle"> <%- post.title || "Untitled" %> </h3>
+        <div class="info">
+          <h1 class="fadeTitle"> <%- truncate(strip_html(post.content), {length: 50, omission: '...'}) %> </h1>
+          <hr>
+        </div>
+        <p class="backArrow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
       </div>
-      <p class="backArrow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
-    </div>
-  </a>
-<% }); %>
+    </a>
+  <% }); %>
 
   <div class="selectedArea">
     <h1 id="selectImg"><span id="selectTitle"></span></h1>
@@ -453,6 +448,7 @@ h2 {
 </ul>
 
 <%- js('js/jquery.min.js') %>
+
 <script>
 (function() {
 	var isSelected = false,resizeTimer,scrollBackTo;
@@ -550,6 +546,3 @@ h2 {
 })()
 </script>
 
-  
- 
- 
