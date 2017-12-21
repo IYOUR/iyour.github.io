@@ -412,7 +412,7 @@ h2 {
 %>
 <div id="projectsApp">
   <% page.posts.each(function(post,index){ %>  
-    <% var coverImg = post["header-img"] ? post.path + post["header-img"] : url_for(config["header-img"]) %>
+    <% var coverImg = post["header-img"] ? url_for(post.path) + post["header-img"] : url_for(config["header-img"]) %>
     <a href="#/<%= post.path %><%= index %>">
       <div class="projects" id="item<%= index %>" attr-path="<%= post.path %>" attr-title="<%= post.title || "Untitled" %>" attr-content="<%= post.content %>" attr-img="<%= coverImg %>" style="background: url('<%= coverImg %>')">
         <h3 class="beforeTitle"> <%- post.title || "Untitled" %> </h3>
