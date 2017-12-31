@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          IYOUR的博客 | IYOUR&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://iyour.org/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog_layout.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/blog_content.css">
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">IYOUR</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Page Header -->
+<header class="intro-header" style="background-image:url('/img/home-bg.jpg')">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading">
+                  <h1> IYOUR </h1>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+<h2>
+  <span class="subheading">Look For Less  Do More</span>
+</h2>
+
+<div id="projectsApp">
+    
+    
+    <a href="#/2017/05/07/Jay-Chou西安演唱会/0">
+      <div class="projects" id="item0" attr-path="2017/05/07/Jay-Chou西安演唱会/" attr-title="Jay Chou西安演唱会" attr-content="&lt;blockquote&gt;
+&lt;p&gt;毕业没来一场收走就走的旅行，却有一场说看就看的演唱会。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/toghter.jpg&quot; title=&quot;image&quot;&gt;
+&lt;p&gt;记得还在上小学时无意间将一张别人的CD插入VCD里，一阵乒乓球拍打并带着闹铃声音的旋律传入双耳，后面一个字也没有听清楚的说唱让我留下了深刻的印象，但是谈不上一点点欣赏，只是觉得和当时听惯了的抒情吟唱的歌曲比起来确是太过另类。直到后来一首首像青花瓷一样中国风的歌曲大街小巷的传唱开来才对Jay有了初步的认识，没事也会哼唱唱其中那么几句。直到高中的一个晚上正在宿舍带着耳机写作业的我突然切到一首歌曲，轻缓唯美的旋律与当时的心境完恰的融合在一起，犹如沐浴在明媚的春日里陶醉于其中如初恋的温暖和美好，单曲循环的听完好几遍之后，甚至拔掉了耳机打开了外放想让其他几个舍友也感受于其中，就这样一直一直循环着这首“七里香”直到入睡，后来的好几天里脑中也一直回响着这首歌的旋律，嘴角也时常不自觉的跟着上扬。不知不觉在那个青春懵懂的岁月里这样的声音和旋律变得越来越不能缺失，无论在什么样情况下的心境，总有一首旋律可以与之慰藉契合。&lt;/p&gt;
+&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/start.jpg&quot; title=&quot;image&quot;&gt;
+&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/show.jpg&quot; title=&quot;image&quot;&gt;
+&lt;p&gt;从小学到现在大学毕业，如果说整个青春都是周杰伦，那我必须还得算上童年。特别得庆幸在大学最后一学期并且刚好毕业答辩结束的五一假期恰好遇上时隔两年的杰伦西安地标最强演唱会，大概是大学毕业最好的礼物和回忆吧。在二月初得知西安演唱会的行程安排时去看售票信息，就发现门票已经售完。由于当时刚花钱买了单反并且还在公司实习上班就没有抱太大期望，所以也就没有再怎么关注了，直到临近五一演唱会的相关信息在网上又席卷而来，并且是连开两场，抱着毫无期望的我又在网上查了下票，结果还是不出意外的无票可售。想到在学生时代不能去看一次想看的演唱会将会是多么遗憾的一件事，即使以后还有机会还会比现在有钱买内场的票，但是回不去的是大学是青春啊。然后毅然的决定即使买黄牛票也要去看了这场演唱会，虽然当时已经临近演唱会开始的日期黄牛票也已加价了不少，最后还是找了家感觉较为靠谱的黄牛票务网站下单买了两张票。&lt;br&gt;&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/chanwai.jpg&quot; title=&quot;image&quot;&gt;&lt;br&gt;&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/channei.jpg&quot; title=&quot;image&quot;&gt;&lt;br&gt;正式登场演出，现场看见真人还是相当激动的，全场一片沸腾中。&lt;br&gt;&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/toghter.jpg&quot; title=&quot;image&quot;&gt;&lt;br&gt;同样的一片粉海中。&lt;br&gt;&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/song.jpg&quot; title=&quot;image&quot;&gt;&lt;br&gt;很喜欢的一首七里香，也是演唱会的最后一首歌，全场大合唱。&lt;br&gt;&lt;img src=&quot;/2017/05/07/Jay-Chou西安演唱会/end.jpg&quot; title=&quot;image&quot;&gt;&lt;/p&gt;
+" attr-img="/2017/05/07/Jay-Chou西安演唱会/head.jpg" style="background: url('/2017/05/07/Jay-Chou西安演唱会/head.jpg')">
+        <h3 class="beforeTitle"> Jay Chou西安演唱会 </h3>
+        <div class="info">
+          <h1 class="fadeTitle"> 
+毕业没来一场收走就走的旅行，却有一场说看就看的演唱会。
+
+
+记得还在上小学时无意间将一张别人... </h1>
+          <hr>
+        </div>
+        <p class="backArrow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+      </div>
+    </a>
+    
+    
+    <a href="#/2016/12/31/review-2016/1">
+      <div class="projects" id="item1" attr-path="2016/12/31/review-2016/" attr-title="review-2016" attr-content="&lt;blockquote&gt;
+&lt;p&gt;驻足回望走过的2016&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;2016年的最后一天，明天就是崭新的2017。不得不在这最后的时间里回望下这即将过去的一年，也算是博客搭建好的第一篇博文吧。在这一年里自己曾经不管怎样都是5.0的视力也开始突然有点看不清远处的风景了，一直以来作为一个合格的瘦纸的优越感也开始一点点被体重称上不断上涨的数字所冲击。森森的忧桑啊~~&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;上半年&lt;br&gt;这一年的上半段时间也就是大三的第二学期(想着明年就要毕业了，突然感觉大三是一个好遥远的时间段)算是自己在前端学习里的一个非常重要的时间段。通过大二第二学期的前端入门到大三第一学期的初步学习，到了大三的第二学期里终于有可以用自己掌握的前端知识完整的开发一个项目了。趁着参加计算机设计大赛的机会用Php和Mysql搭建的后台服务构建了一个简单的二手闲置物品的交易网站，在这个过程中自己对web前后端的开发算是有了一个较为清楚的认识与掌握，也越来越坚定了以后的Web前端开发的职业道路。原本计划到了这一学期结束的时候去找一个前端开发的实习工作，然后度过一个极为充实的暑假，结果准备的太晚只是匆忙的投递了几封简历，最后收到了一家公司的视频面试机会，结果面试完很久也没等到回复，就只好回家了(&lt;em&gt;尴尬脸&lt;/em&gt;)。随着经历的事情越来越多也越来越认识到，在还没有任何的准备和积累的时候妄然假设假想之后以后会怎样怎样，最后结果往往并不会是那样，很难有什么事情可以一蹴而就。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下半年&lt;br&gt;下半年里在一家创业公司度过了一段极为艰苦却很有收获的时光。在公司的实习时间里算是真正的开始了实际项目的开发，从开始熟悉项目结构和代码到完成项目任务的开发过程中确实经历了不少的煎熬，为了实现一个功能或解决一个问题通宵熬夜敲代码几乎快变成了实习生活中的常态。在这段实习时间里的那么几个瞬间突然对程序猿的这条不归路有了那么一点点不坚定，但一切都熬过去了也会发现一切都还好，能力和技术在这段时间里都得到了快速的提升。除了在实习中增长的技术能力外也终于可以拿着自己“搬砖”来的钱让自己越来越浓厚的摄影兴趣可以稍稍的得到一点满足。虽然摄影穷三代，单反毁一生；但在这一条的不归路上我即将又要成功的迈出一步(对未来深深的担忧中~~)。&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这一年里的代码敲了很多，都不怎么会说话了，所以趁着明年即将毕业的时间里得要多出去走走，多拍拍照，多锻炼锻炼身体，多读读书！&lt;/p&gt;
+" attr-img="/2016/12/31/review-2016/2016.jpg" style="background: url('/2016/12/31/review-2016/2016.jpg')">
+        <h3 class="beforeTitle"> review-2016 </h3>
+        <div class="info">
+          <h1 class="fadeTitle"> 
+驻足回望走过的2016
+
+
+2016年的最后一天，明天就是崭新的2017。不得不在这最后的时... </h1>
+          <hr>
+        </div>
+        <p class="backArrow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+      </div>
+    </a>
+  
+
+  <div class="selectedArea">
+    <h1 id="selectImg"><span id="selectTitle"></span></h1>
+    <div id="selectContent" class="copyArea"></div>
+  </div>
+
+</div>
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+<script>
+	(function() {
+		var isSelected = false,resizeTimer,scrollBackTo;
+		$(document).ready(function() {
+			resizeProjectDivs();
+			//click
+			$(".projects").on("click",function(){
+			showPost($(this));
+			});
+
+			$(window).on('load',function(){
+				var url = window.location.href;
+				if(!isNaN(url.substr(url.length-1,1))){
+					showPost($("#item"+url.substr(url.length-1,1)))
+				}
+			}) 
+			$(window).on("resize", function(e) {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function() {
+					if (isSelected == false) {
+					resizeProjectDivs();
+					}
+				}, 250);
+			});	
+		});	
+		function showPost (domNode) {
+			var self = domNode;
+			if ($(self).hasClass("openedProject")) {
+				isSelected = false;
+				window.history.go(-1)
+				$(self).addClass("midTransition");
+				$(self).removeClass("openedProject");
+
+				setTimeout(function() {
+					$(self).removeClass("midTransition");
+					$(".selectedArea").removeClass("opened");
+				}, 800);
+				setTimeout(function() {
+					$(".projects").removeClass("hidden");
+					$(".projects").removeClass("shrunk");
+				}, 1200);
+				setTimeout(function() {
+					$("html, body").animate({ scrollTop: scrollBackTo}, 500);
+				}, 1600);		
+			} else {
+				isSelected = true;
+				window.scrollTo(0, 0);
+				scrollBackTo = $(self).offset().top;
+				$(self).addClass("midTransition");
+				$(".projects").addClass("hidden");
+				$(self).removeClass("hidden");
+				//填充内容
+				$("#selectTitle").text($(self).attr("attr-title"));
+				$("#selectContent").html($(self).attr("attr-content"));
+				$("#selectImg").css("background","url("+$(self).attr('attr-img')+")");       
+				setTimeout(function() {
+					$(".selectedArea").addClass("opened");
+					$(self).addClass("openedProject");
+					$(self).removeClass("midTransition");
+					$(".projects").addClass("shrunk");
+					$(self).removeClass("shrunk");			
+					
+				}, 800);
+			}  
+		}
+
+		function resizeProjectDivs() {
+			var midRange = false;
+			var smallRange = false;
+			var winWidth = $(window).width();
+			if (winWidth < 920 && 620 < winWidth) {
+				midRange = true;
+			}
+			if (winWidth < 720) {
+				smallRange = true;
+			}
+			var i = 0;
+
+			$(".projects").each(function() {
+				var pWidth = $(this).width();
+				var pHeight;
+				if (midRange == true) {
+				pHeight = pWidth * 0.5;
+				} else if (smallRange == true) {
+				pHeight = pWidth;
+				} else {
+				pHeight = pWidth * 1.5;
+				}
+			
+				$(this).css("height", pHeight + "px");
+				i++;
+			});
+		}	
+
+	})()
+</script>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/IYOUR">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/youryoui">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/IYOUR">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; IYOUR 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="#">IYOUR</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<!-- <img src="http://iyour.org/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
