@@ -61,6 +61,8 @@ body {
 }
 p {
   margin: 30px 0;
+  -webkit-font-smoothing: antialiased; /*chrome、safari*/
+  -moz-osx-font-smoothing: grayscale;/*firefox*/
 }
 h1,
 h2,
