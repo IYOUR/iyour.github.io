@@ -172,13 +172,37 @@
     
     
     <a href="#/2018/04/07/探秘JS-EventLoop/0">
-      <div class="projects" id="item0" attr-path="2018/04/07/探秘JS-EventLoop/" attr-title="探秘JS EventLoop" attr-content="&lt;h1 id=&quot;JavaScript-事件循环&quot;&gt;&lt;a href=&quot;#JavaScript-事件循环&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 事件循环&quot;&gt;&lt;/a&gt;JavaScript 事件循环&lt;/h1&gt;&lt;p&gt;JavaScript 是单线程的语言，同一个时间只能做一件事，但却有着无处不在的异步。&lt;/p&gt;
+      <div class="projects" id="item0" attr-path="2018/04/07/探秘JS-EventLoop/" attr-title="Untitled" attr-content="&lt;h1 id=&quot;JavaScript-事件循环&quot;&gt;&lt;a href=&quot;#JavaScript-事件循环&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 事件循环&quot;&gt;&lt;/a&gt;JavaScript 事件循环&lt;/h1&gt;&lt;p&gt;JavaScript 是单线程的语言，同一个时间只能做一件事，但却有着无处不在的异步。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;同步：&lt;/code&gt;同步方法调用一旦开始，调用者必须等到方法调用返回后，才能继续后续的行为。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;异步：&lt;/code&gt; 异步方法调用更像一个消息传递，一旦开始，方法调用就会立即返回，调用者就可以继续后续的操作。而，异步方法通常会在另外一个线程中，“真实”地执行着。整个过程，不会阻碍调用者的工作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;异步：&lt;/code&gt; 异步方法调用更像一个消息传递，一旦开始，方法调用就会立即返回，调用者就可以继续后续的操作。而，异步方法通常会在另外一个线程中，“真实”地执行着。整个过程，不会阻碍调用者的工作。&lt;h1 id=&quot;内存空间&quot;&gt;&lt;a href=&quot;#内存空间&quot; class=&quot;headerlink&quot; title=&quot;内存空间&quot;&gt;&lt;/a&gt;内存空间&lt;/h1&gt;&lt;h2 id=&quot;1-堆-heap&quot;&gt;&lt;a href=&quot;#1-堆-heap&quot; class=&quot;headerlink&quot; title=&quot;1,堆(heap)&quot;&gt;&lt;/a&gt;1,堆(heap)&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;堆数据结构是一种树状结构。它的存取数据的方式，则与书架与书非常相似。好比在JSON格式的数据中，我们存储的key-value是可以无序的，因为顺序的不同并不影响我们的使用，我们只需要关心书的名字。&lt;h2 id=&quot;2-栈-stack&quot;&gt;&lt;a href=&quot;#2-栈-stack&quot; class=&quot;headerlink&quot; title=&quot;2,栈(stack)&quot;&gt;&lt;/a&gt;2,栈(stack)&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;先进后出，后进先出&lt;br&gt;&lt;img src=&quot;http://p4.cdn.img9.top/ipfs/QmWhxEh4X4vcZkxYgzHT93aogtuKpwKrX7cL4zLNfVDK41?4.png&quot; alt=&quot;&quot;&gt;&lt;h2 id=&quot;3-队列-queue&quot;&gt;&lt;a href=&quot;#3-队列-queue&quot; class=&quot;headerlink&quot; title=&quot;3,队列(queue)&quot;&gt;&lt;/a&gt;3,队列(queue)&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;队列是一种先进先出（FIFO）的数据结构&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/599584-7ca4b641daf48c57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;执行上下文&quot;&gt;&lt;a href=&quot;#执行上下文&quot; class=&quot;headerlink&quot; title=&quot;执行上下文&quot;&gt;&lt;/a&gt;执行上下文&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;控制器转到js可执行代码的时候，就会进入到一个执行上下文。&lt;h3 id=&quot;全局代码（Global-code）&quot;&gt;&lt;a href=&quot;#全局代码（Global-code）&quot; class=&quot;headerlink&quot; title=&quot;全局代码（Global code）&quot;&gt;&lt;/a&gt;全局代码（Global code）&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;这种类型的代码是在”程序”级处理的：例如加载外部的js文件或者本地&lt;script&gt;&lt;/script&gt;标签内的代码。全局代码不包括任何function体内的代码。 这个是默认的代码运行环境，一旦代码被载入，引擎最先进入的就是这个环境。&lt;h3 id=&quot;函数代码（Function-code）&quot;&gt;&lt;a href=&quot;#函数代码（Function-code）&quot; class=&quot;headerlink&quot; title=&quot;函数代码（Function code）&quot;&gt;&lt;/a&gt;函数代码（Function code）&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;任何一个函数体内的代码，但不包括内部函数的代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;执行环境栈&quot;&gt;&lt;a href=&quot;#执行环境栈&quot; class=&quot;headerlink&quot; title=&quot;执行环境栈&quot;&gt;&lt;/a&gt;执行环境栈&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;列&lt;figure class=&quot;highlight matlab&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(i)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;i&lt;/span&gt; &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;begin:&#39;&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;i&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  foo(&lt;span class=&quot;built_in&quot;&gt;i&lt;/span&gt; - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;end:&#39;&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;i&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;函数调用栈与任务队列&quot;&gt;&lt;a href=&quot;#函数调用栈与任务队列&quot; class=&quot;headerlink&quot; title=&quot;函数调用栈与任务队列&quot;&gt;&lt;/a&gt;函数调用栈与任务队列&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;每个函数调用都会创造新的上下文与局部作用域，这些执行上下文堆叠就形成了所谓的执行上下文栈。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/599584-58d31e5b80737ca0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;浏览器环境下的Event-Loop&quot;&gt;&lt;a href=&quot;#浏览器环境下的Event-Loop&quot; class=&quot;headerlink&quot; title=&quot;浏览器环境下的Event Loop&quot;&gt;&lt;/a&gt;浏览器环境下的Event Loop&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;当主线程运行的时候,JS会产生堆和栈(执行栈)&lt;/li&gt;
+&lt;li&gt;主线程中调用的webaip所产生的异步操作(dom事件、ajax回调、定时器等)只要产生结果，就把这个回调塞进“任务队列”中等待执行。&lt;/li&gt;
+&lt;li&gt;当主线程中的同步任务执行完毕，系统就会依次读取“任务队列”中的任务，将任务放进执行栈中执行。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;执行任务时可能还会产生新的异步操作，会产生新的循环，整个过程是循环不断的。&lt;br&gt;&lt;img src=&quot;https://user-gold-cdn.xitu.io/2018/3/18/162385d14ae83726?imageView2/0/w/1280/h/960/format/webp/ignore-error/1&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;事件循环其实就是入栈出栈的循环。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 " attr-img="/img/home-bg.jpg" style="background: url('/img/home-bg.jpg')">
-        <h3 class="beforeTitle"> 探秘JS EventLoop </h3>
+        <h3 class="beforeTitle"> Untitled </h3>
         <div class="info">
           <h1 class="fadeTitle"> JavaScript 事件循环JavaScript 是单线程的语言，同一个时间只能做一件事，但... </h1>
           <hr>
