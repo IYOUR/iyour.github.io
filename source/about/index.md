@@ -15,18 +15,18 @@ header-img: "img/about-bg.jpg"
 Info({ 
     'name':'赵顺友'
     'nickname': 'IYOUR',
-    ""title"": '哎呦，不错哦',
+    'title': '哎呦，不错哦',
     'address': '陕西西安',
     'description': '前端开发者,热爱生活，喜欢一切美好的事物。喜欢摄影，设计，运动，旅游；
                     热爱技术，喜欢浏览技术Blog，科技相关站点。',
-    ""skills"": [
-        ['html', 'javascript', 'jQuery', 'css', 'es6', 'node'],
-        ['Vue','Vue-router','Angular'],
+    'skills': [
+        ['html', 'javascript','css3', 'es6', 'node'],
+        ['vue','recat'],
         ['webpack', 'gulp'],
-        ['sass'],
+        ['sass','less'],
         ['git'],
     ],
-    'contact': { 'email' : 'youryoui@outlook.com',
+    'contact': { 'email' : 'iyourr@gmail.com',
                  'QQ'    : '719627303',
                  'Wechat': 'buzhidaoni00'
                }
