@@ -1,3 +1,10 @@
+title: Js事件循环
+date: 2018-02-04 16:04:15
+# header-img: head.jpg
+tags:
+  - Js
+---
+
 # JavaScript 事件循环
 
 JavaScript 是单线程的语言，同一个时间只能做一件事，但却有着无处不在的异步。
@@ -47,4 +54,4 @@ foo(1);
 - 执行任务时可能还会产生新的异步操作，会产生新的循环，整个过程是循环不断的。
 ![](https://user-gold-cdn.xitu.io/2018/3/18/162385d14ae83726?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-- 事件循环其实就是入栈出栈的循环。待续。
+- 事件循环其实就是入栈出栈的循环。问问
