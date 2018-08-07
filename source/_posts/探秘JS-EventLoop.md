@@ -1,6 +1,6 @@
 title: Js事件循环
 date: 2018-02-04 16:04:15
-# header-img: head.jpg
+
 tags:
   - Js
 ---
